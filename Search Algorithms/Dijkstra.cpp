@@ -12,7 +12,7 @@ vector<int> dijkstra(vector<vector<pair<int, int>>> adj, int src) {
         pair<int, int> curPair = pq.top();
         pq.pop();
         int cur = curPair.second;
-        if (curPair.first >= dist[cur]) {
+        if (dist[cur] != -1 && curPair.first >= dist[cur]) {
             continue;
         }
         for (const pair<int, int>& edge : adj[cur]) {
