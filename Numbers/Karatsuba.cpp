@@ -16,7 +16,7 @@ int fastPow(int a, int b) {
     }
 }
 
-int karutsuba(int a, int b) {
+int karatsuba(int a, int b) {
     if (a < 10 || b < 10) {
         return a * b;
     }
