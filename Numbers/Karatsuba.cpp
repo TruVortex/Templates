@@ -31,6 +31,6 @@ int karatsuba(int a, int b) {
 
 int main() {
     for (int i = 11; i <= 20; i++) {
-        printf("%d\n", karutsuba(i, i + i - 1));
+        printf("%d\n", karatsuba(i, i + i - 1));
     }
 }
