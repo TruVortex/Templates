@@ -1,6 +1,11 @@
-int modPow(int n, int exp, int m) {
-    if (exp == 1) {
-        return n;
+int modPow(int a, int b, int m) {
+    if (b == 0) {
+        return 1;
     }
-    return n * modPow(n, exp - 1, m) % m;
+    long long temp = modPow(a, b / 2, m) % m;
+    if (b % 2 == 1) {
+        return ((temp * temp) % m) * a % m;
+    } else {
+        return ((temp * temp) % m);
+    }
 }
