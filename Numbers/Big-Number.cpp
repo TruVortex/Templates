@@ -30,6 +30,22 @@ struct BigNum {
         }
     }
 
+    void multiply(BigNum n) {
+        BigNum temp;
+        for (int i = 0; i < 49; i++) {
+            for (int j = 0; j < 49; j++) {
+                temp.arr[i + j] += arr[i] * n.arr[j];
+            }
+        }
+        for (int i = 0; i < 99; i++) {
+            if (temp.arr[i] >= 10) {
+                temp.arr[i + 1] += temp.arr[i] / 10;
+                temp.arr[i] %= 10;
+            }
+            arr[i] = temp.arr[i];
+        }
+    }
+
     string toString() {
         int i;
         for (i = 99; i >= 0; i--) {
@@ -50,11 +66,11 @@ struct BigNum {
 };
 
 int main() {
-    BigNum a("23751862468957632907131205312375485123785621368947"), b("4765215596742196521562987089425106237623579236123");
+    BigNum a("237518624689576329071312053123754851237856213947"), b("47652155967421965215629870894251062376239236123");
     cout << a.toString() << " " << b.toString() << "\n";
     a.add(b);
     cout << a.toString() << " " << b.toString() << "\n";
-    //b.multiply(a);
-    //cout << a.toString() << " " << b.toString() << "\n";
+    b.multiply(a);
+    cout << a.toString() << " " << b.toString() << "\n";
     return 0;
 }
