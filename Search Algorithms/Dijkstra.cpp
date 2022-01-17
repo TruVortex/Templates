@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -21,7 +22,6 @@ vector<int> dijkstra(vector<vector<pair<int, int>>> adj, int src) {
                 pq.push({ dist[edge.first], edge.first });
             }
         }
-        pq.pop();
     }
     return dist;
 }
