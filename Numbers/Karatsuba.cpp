@@ -21,11 +21,8 @@ int karatsuba(int a, int b) {
         return a * b;
     }
     int minn = min(log10(a) + 1, log10(b) + 1) / 2;
-
     int hi1 = a / fastPow(10, minn), lo1 = a % fastPow(10, minn), hi2 = b / fastPow(10, minn), lo2 = b % fastPow(10, minn);
-    
     int z0 = karatsuba(lo1, lo2), z1 = karatsuba(lo1 + hi1, lo2 + hi2), z2 = karatsuba(hi1, hi2);
-
     return (z2 * fastPow(10, minn + minn)) + ((z1 - z2 - z0) * fastPow(10, minn)) + z0;
 }
 
