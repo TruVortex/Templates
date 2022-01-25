@@ -40,7 +40,7 @@ struct SegmentTree {
             return 0;
         }
         if (l == tl && r == tr) {
-            return  t[v];
+            return t[v];
         }
         int tm = (tl + tr) / 2;
         return sum(v + v, tl, tm, l, min(r, tm)) + sum(v + v + 1, tm + 1, tr, max(l, tm + 1), r);
