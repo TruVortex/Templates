@@ -11,7 +11,7 @@ struct SegmentTree {
     int n;
     vector<int> t;
 
-    SegmentTree(vector<int> arr) : t(4 * arr.size()) {
+    SegmentTree(vector<int> arr) : t(2 * arr.size()) {
         n = arr.size();
         construct(arr, 1, 0, n - 1);
     }
@@ -25,9 +25,9 @@ struct SegmentTree {
             t[v] = arr[tl];
         } else {
             int m = (tl + tr) / 2;
-            construct(arr, v + v, tl, m);
-            construct(arr, v + v + 1, m + 1, tr);
-            t[v] = t[v + v] + t[v + v + 1];
+            construct(arr, v + 1, tl, m);
+            construct(arr, v + 2 * (m - tl + 1), m + 1, tr);
+            t[v] = t[v + 1] + t[v + 2 * (m - tl + 1)];
         }
     }
 
@@ -43,7 +43,7 @@ struct SegmentTree {
             return t[v];
         }
         int tm = (tl + tr) / 2;
-        return sum(v + v, tl, tm, l, min(r, tm)) + sum(v + v + 1, tm + 1, tr, max(l, tm + 1), r);
+        return sum(v + 1, tl, tm, l, min(r, tm)) + sum(v + 2 * (tm - tl + 1), tm + 1, tr, max(l, tm + 1), r);
     }
 
     void update(int pos, int val) {
@@ -56,11 +56,11 @@ struct SegmentTree {
         } else {
             int tm = (tl + tr) / 2;
             if (pos <= tm) {
-                update(v + v, tl, tm, pos, val);
+                update(v + 1, tl, tm, pos, val);
             } else {
-                update(v + v + 1, tm + 1, tr, pos, val);
+                update(v + 2 * (tm - tl + 1), tm + 1, tr, pos, val);
             }
-            t[v] = t[v + v] + t[v + v + 1];
+            t[v] = t[v + 1] + t[v + 2 * (tm - tl + 1)];
         }
     }
 };
