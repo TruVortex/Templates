@@ -26,6 +26,16 @@ struct BigNum {
         }
     }
 
+    void subtract(BigNum n) {
+        for (int i = 0; i < MAXN; i++) {
+            arr[i] -= n.arr[i];
+            if (arr[i] < 0) {
+                arr[i + 1]--;
+                arr[i] += 10;
+            }
+        }
+    }
+
     void multiply(BigNum n) {
         BigNum temp;
         for (int i = 0; i < 49; i++) {
