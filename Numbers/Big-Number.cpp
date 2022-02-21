@@ -5,10 +5,10 @@ using namespace std;
 
 struct BigNum {
 
-    int arr[100];
+    int SZ = 100, arr[SZ];
 
     BigNum(string n = "") {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < SZ; i++) {
             arr[i] = 0;
         }
         for (int i = 0; i < n.length(); i++) {
@@ -17,7 +17,7 @@ struct BigNum {
     }
 
     void add(BigNum n) {
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < SZ - 1; i++) {
             arr[i] += n.arr[i];
             if (arr[i] >= 10) {
                 arr[i + 1]++;
@@ -27,7 +27,7 @@ struct BigNum {
     }
 
     void subtract(BigNum n) {
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < SZ - 1; i++) {
             arr[i] -= n.arr[i];
             if (arr[i] < 0) {
                 arr[i + 1]--;
@@ -38,12 +38,12 @@ struct BigNum {
 
     void multiply(BigNum n) {
         BigNum temp;
-        for (int i = 0; i < 49; i++) {
-            for (int j = 0; j < 49; j++) {
+        for (int i = 0; i < SZ / 2 - 1; i++) {
+            for (int j = 0; j < SZ / 2 - 1; j++) {
                 temp.arr[i + j] += arr[i] * n.arr[j];
             }
         }
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < SZ - 1; i++) {
             if (temp.arr[i] >= 10) {
                 temp.arr[i + 1] += temp.arr[i] / 10;
                 temp.arr[i] %= 10;
@@ -54,7 +54,7 @@ struct BigNum {
 
     string toString() {
         int i;
-        for (i = 99; i >= 0; i--) {
+        for (i = SZ - 1; i >= 0; i--) {
             if (arr[i] != 0) {
                 break;
             }
