@@ -27,7 +27,7 @@ struct BigNum {
     }
 
     void subtract(BigNum n) {
-        for (int i = 0; i < MAXN; i++) {
+        for (int i = 0; i < 99; i++) {
             arr[i] -= n.arr[i];
             if (arr[i] < 0) {
                 arr[i + 1]--;
