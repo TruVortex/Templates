@@ -5,7 +5,8 @@ using namespace std;
 
 struct BigNum {
 
-    int SZ = 100, arr[SZ];
+    static const int SZ = 300;
+    int arr[SZ];
 
     BigNum(string n = "") {
         for (int i = 0; i < SZ; i++) {
