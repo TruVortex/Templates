@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string read(vector<vector<int>> dp, string a, string b, int x, int y) {
+string read(vector<vector<int>>& dp, string a, string b, int x, int y) {
     if (x == 0 || y == 0) {
         return "";
     } else if (a[x - 1] == b[y - 1]) {
