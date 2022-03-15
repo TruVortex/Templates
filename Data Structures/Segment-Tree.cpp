@@ -11,16 +11,16 @@ struct SegmentTree {
     int n;
     vector<int> t;
 
-    SegmentTree(vector<int> arr) : t(2 * arr.size()) {
+    SegmentTree(vector<int>& arr) : t(2 * arr.size()) {
         n = arr.size();
         construct(arr, 1, 0, n - 1);
     }
 
-    void construct(vector<int> arr) {
+    void construct(vector<int>& arr) {
         construct(arr, 1, 0, n - 1);
     }
 
-    void construct(vector<int> arr, int v, int tl, int tr) {
+    void construct(vector<int>& arr, int v, int tl, int tr) {
         if (tl == tr) {
             t[v] = arr[tl];
         } else {
