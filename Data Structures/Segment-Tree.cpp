@@ -66,7 +66,8 @@ struct SegmentTree {
 };
 
 int main() {
-    SegmentTree seg({ 1, 2, 3, 4, 5 });
+    vector<int> arr = { 1, 2, 3, 4, 5 };
+    SegmentTree seg(arr);
     for (int i = 0; i < 5; i++) {
         for (int j = i; j < 5; j++) {
             printf("%d %d %d\n", i, j, seg.sum(i, j));
