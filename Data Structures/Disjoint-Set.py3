@@ -1,6 +1,6 @@
 import sys
-import functools
 
+from functools import cmp_to_key
 from typing import List
 
 sys.setrecursionlimit(100000)
@@ -49,7 +49,7 @@ class DisjointSet:
 
     def kruskal(self):
         result: List[Edge] = []
-        self.edges.sort(key=functools.cmp_to_key(self.compare))
+        self.edges.sort(key=cmp_to_key(self.compare))
         for edge in self.edges:
             if self.find(edge.a) != self.find(edge.b):
                 result.append(edge)
