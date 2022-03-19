@@ -24,12 +24,10 @@ struct Edge {
 
 struct DisjointSet {
 
-    int v;
     vector<Edge> edges;
     unordered_map<int, int> parent, rank;
 
     DisjointSet(int v) {
-        this->v = v;
         for (int i = 0; i < v; i++) {
             makeSet(i);
         }
