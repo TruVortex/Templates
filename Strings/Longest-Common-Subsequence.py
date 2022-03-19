@@ -11,8 +11,7 @@ def trace(dp, s, t, x, y):
         return trace(dp, s, t, x - 1, y - 1) + s[x - 1]
     elif dp[x - 1][y] > dp[x][y - 1]:
         return trace(dp, s, t, x - 1, y)
-    else:
-        return trace(dp, s, t, x, y - 1)
+    return trace(dp, s, t, x, y - 1)
 
 
 s, t = input().strip(), input().strip()
