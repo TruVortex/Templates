@@ -1,7 +1,9 @@
+import sys
 import functools
 
 from typing import List
 
+sys.setrecursionlimit(100000)
 
 class Edge:
 
