@@ -25,17 +25,13 @@ struct Edge {
 struct DisjointSet {
 
     vector<Edge> edges;
-    unordered_map<int, int> parent, rank;
+    vector<int> parent, rank;
 
     DisjointSet(int v) {
         for (int i = 0; i < v; i++) {
-            makeSet(i);
+            parent.push_back(i);
+            rank.push_back(0);
         }
-    }
-
-    void makeSet(int x) {
-        parent[x] = x;
-        rank[x] = 0;
     }
 
     void addEdge(Edge edge) {
