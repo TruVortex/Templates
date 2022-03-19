@@ -1,8 +1,4 @@
-import sys
-
 from typing import List
-
-sys.setrecursionlimit(100000)
 
 class Edge:
 
