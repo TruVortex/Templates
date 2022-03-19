@@ -1,6 +1,5 @@
 import sys
 
-from functools import cmp_to_key
 from typing import List
 
 sys.setrecursionlimit(100000)
@@ -43,13 +42,9 @@ class DisjointSet:
             self.parent[x_root] = y_root
             self.rank[y_root] += 1
 
-    @staticmethod
-    def compare(edge1, edge2):
-        return edge1.weight - edge2.weight
-
     def kruskal(self):
         result: List[Edge] = []
-        self.edges.sort(key=cmp_to_key(self.compare))
+        self.edges.sort(key=lambda edge: edge.weight)
         for edge in self.edges:
             if self.find(edge.a) != self.find(edge.b):
                 result.append(edge)
