@@ -70,7 +70,7 @@ struct DisjointSet {
         for (const Edge &edge : edges) {
             if (find(edge.a) != find(edge.b)) {
                 result.push_back(edge);
-                unionn(find(edge.a), find(edge.b));
+                unionn(edge.a, edge.b);
             }
         }
         return result;
