@@ -1,4 +1,4 @@
-def longestCommonSubstring(a, b):
+def longest_common_substring(a, b):
     dp = [[0 for i in range(len(b))] for j in range(len(a))]
     length = 0
     ans = ''
@@ -17,7 +17,7 @@ def longestCommonSubstring(a, b):
     return ans
 
 
-print(longestCommonSubstring('helloWorldasdjioajfad', 'dasjHelloWorlddasdji'))
-print(longestCommonSubstring('ahelloWorldasdjioajfad', 'dasjHelloWorlddasdji'))
-print(longestCommonSubstring('ahelloWorldasdjioajfad', 'dasjHelloWorld'))
-print(longestCommonSubstring('helloWorld', 'helloWorld'))
+print(longest_common_substring('helloWorldasdjioajfad', 'dasjHelloWorlddasdji'))
+print(longest_common_substring('ahelloWorldasdjioajfad', 'dasjHelloWorlddasdji'))
+print(longest_common_substring('ahelloWorldasdjioajfad', 'dasjHelloWorld'))
+print(longest_common_substring('helloWorld', 'helloWorld'))
