@@ -19,7 +19,7 @@ class FenwickTree:
     def get_num(self, n):
         return self.get_sum(n) - self.get_sum(n - 1)
 
-    def get_sum(self, *args):
+    def get_sum(self, *args):  # r or l r
         if len(args) == 1:
             n = args[0] + 1
             tot = 0
