@@ -64,6 +64,9 @@ struct BigNum {
         for (; i >= 0; i--) {
             ans += to_string(arr[i]);
         }
+        if (ans == "") {
+            return 0;
+        }
         return ans;
     }
 
