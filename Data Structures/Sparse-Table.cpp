@@ -12,7 +12,7 @@ struct SparseTable {
     vector<int> log;
     vector<vector<int>> st;
 
-    SparseTable(vector<int> arr) : N(arr.size()), log(N + 1), st(N + 1, vector<int>(K + 1)) {
+    SparseTable(vector<int> &arr) : N(arr.size()), log(N + 1), st(N + 1, vector<int>(K + 1)) {
         log[1] = 0;
         for (int i = 2; i <= N; i++) {
             log[i] = log[i / 2] + 1;
