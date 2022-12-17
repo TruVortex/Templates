@@ -26,10 +26,9 @@ struct DisjointSet {
     vector<Edge> edges;
     vector<int> parent, rank;
 
-    DisjointSet(int v) {
+    DisjointSet(int v) : rank(v) {
         for (int i = 0; i < v; i++) {
             parent.push_back(i);
-            rank.push_back(0);
         }
     }
 
