@@ -25,7 +25,7 @@ int cross(const Point o, const Point a, const Point b) {
     return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
 }
 
-vector<Point> convexHull(vector<Point> &points) {
+vector<Point> convexHull(vector<Point> points) {
     sort(points.begin(), points.end());
     vector<Point> u, l;
     for (int i = 0; i < points.size(); i++) {
