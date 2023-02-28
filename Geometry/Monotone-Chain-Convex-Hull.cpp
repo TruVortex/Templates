@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// note that this point implementation behaves like a pair<int, int> which is recommended if speed and/or memory is in question
 struct Point {
 
     int x, y;
