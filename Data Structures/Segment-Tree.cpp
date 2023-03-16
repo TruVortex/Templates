@@ -23,9 +23,9 @@ struct SegmentTree {
         if (tl == tr) {
             t[v] = arr[tl];
         } else {
-            int m = (tl + tr) / 2;
-            construct(arr, v + 1, tl, m);
-            construct(arr, v + 2 * (m - tl + 1), m + 1, tr);
+            int tm = (tl + tr) / 2;
+            construct(arr, v + 1, tl, tm);
+            construct(arr, v + 2 * (m - tl + 1), tm + 1, tr);
             t[v] = t[v + 1] + t[v + 2 * (m - tl + 1)];
         }
     }
