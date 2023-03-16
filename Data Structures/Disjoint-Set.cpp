@@ -4,24 +4,24 @@
 
 using namespace std;
 
+struct Edge {
+
+    int a, b, weight;
+
+    Edge() {
+        a = -1;
+        b = -1;
+        weight = -1;
+    }
+
+    Edge(int a, int b, int weight) {
+        this->a = a;
+        this->b = b;
+        this->weight = weight;
+    }
+};
+
 struct DisjointSet {
-
-    struct Edge {
-
-        int a, b, weight;
-
-        Edge() {
-            a = -1;
-            b = -1;
-            weight = -1;
-        }
-
-        Edge(int a, int b, int weight) {
-            this->a = a;
-            this->b = b;
-            this->weight = weight;
-        }
-    };
 
     vector<Edge> edges;
     vector<int> parent, rank;
