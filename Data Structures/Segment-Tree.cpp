@@ -11,8 +11,7 @@ struct SegmentTree {
     int n;
     vector<int> t;
 
-    SegmentTree(vector<int> &arr) : t(2 * arr.size()) {
-        n = arr.size();
+    SegmentTree(vector<int> &arr) : n(arr.size()), t(2 * n) {
         construct(arr, 1, 0, n - 1);
     }
 
