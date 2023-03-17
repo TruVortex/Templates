@@ -20,7 +20,7 @@ struct Node {
     }
 };
 
-struct SegmentTree {
+struct PersistentSegmentTree {
 
     int n, rootCnt;
     Node *roots[100001];
@@ -71,7 +71,7 @@ struct SegmentTree {
 
 int main() {
     vector<int> arr = { 1, 2, 3, 4, 5 };
-    SegmentTree seg(arr);
+    PersistentSegmentTree seg(arr);
     seg.update(0, 4, 6);
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 5; j++) {
