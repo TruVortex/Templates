@@ -9,7 +9,17 @@ struct FenwickTree {
     
     vector<int> bit;
 
-    FenwickTree(int n) : bit(n + 1, 0) {}
+    FenwickTree(int n) : bit(n + 1) {}
+
+    FenwickTree(vector<int> vect) : bit(vect.size() + 1) {
+        for (int i = 1; i <= vect.size(); i++) {
+            bit[i] += vect[i - 1];
+            int r = (i | (i - 1)) + 1;
+            if (r <= vect.size()) {
+                bit[r] += bit[i];
+            }
+        }
+    }
 
     int parent(int n) {
         return n - (n & (-n));
