@@ -10,9 +10,8 @@ vector<int> dijkstra(vector<vector<pair<int, int>>> &adj, int src) {
     dist[src] = 0;
     pq.push({ 0, src });
     while (!pq.empty()) {
-        pair<int, int> curPair = pq.top();
+        int cur = pq.top().second;
         pq.pop();
-        int cur = curPair.second;
         for (const pair<int, int> &edge : adj[cur]) {
             if (dist[edge.first] == -1 || dist[cur] + edge.second < dist[edge.first]) {
                 dist[edge.first] = dist[cur] + edge.second;
