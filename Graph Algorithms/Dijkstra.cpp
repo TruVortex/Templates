@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> dijkstra(vector<vector<pair<int, int>>> &adj, int src) {
-    vector<int> dist(adj.size(), -1);
+    vector<int> dist(adj.size(), 0x3f3f3f3f);
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     dist[src] = 0;
     pq.push({ 0, src });
@@ -13,7 +13,7 @@ vector<int> dijkstra(vector<vector<pair<int, int>>> &adj, int src) {
         int cur = pq.top().second;
         pq.pop();
         for (const pair<int, int> &edge : adj[cur]) {
-            if (dist[edge.first] == -1 || dist[cur] + edge.second < dist[edge.first]) {
+            if (dist[cur] + edge.second < dist[edge.first]) {
                 dist[edge.first] = dist[cur] + edge.second;
                 pq.push({ dist[edge.first], edge.first });
             }
